@@ -1,12 +1,13 @@
 package cn.lightzz.idcodeutils;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 import java.awt.*;
 
-class IdCodeToolsTest extends Panel {
+public class IdCodeToolsTest extends Panel {
     @Test
-    void setWindowIdCode() {
+    public void setWindowIdCode() {
 
     }
 }

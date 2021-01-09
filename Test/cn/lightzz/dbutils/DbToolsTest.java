@@ -1,24 +1,25 @@
 package cn.lightzz.dbutils;
 
-import org.junit.jupiter.api.Test;
 
-class DbToolsTest {
+import org.junit.Test;
+
+public class DbToolsTest {
 
     @Test
-    void oracleGetConnection() {
+    public void oracleGetConnection() {
         new DbTools().oracleGetConnection("thin", "localhost", "1521", "XE",
-                "system", "zhb1998");
+                "system", "system");
     }
 
     @Test
-    void mysqlGetConnection() {
+    public void mysqlGetConnection() {
         new DbTools().mysqlGetConnection("localhost", "3306", "root",
-                "root", "demo");
+                "root", "test");
     }
 
     @Test
-    void releaseConn() {
+    public void releaseConn() {
         new DbTools().releaseConn(new DbTools().mysqlGetConnection("localhost", "3306",
-                "root", "root", "demo"));
+                "root", "root", "test"));
     }
 }
