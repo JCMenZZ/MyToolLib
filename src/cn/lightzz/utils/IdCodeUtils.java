@@ -1,19 +1,18 @@
-package cn.lightzz.idcodeutils;
+package cn.lightzz.utils;
 
-import cn.lightzz.idcodeutils.connector.IdCodeToolsPort;
 
 import java.awt.*;
 import java.util.Random;
 
 /**
- * 验证码工具
+ * 窗体验证码生成工具
  *
  * @author JCLightZZ
  * @date 2020/11/4 20:18
  */
-public class IdCodeTools implements IdCodeToolsPort {
+public class IdCodeUtils {
     /**
-     * 常量含义介绍：
+     * 常量含义解释：
      * POINT_X              远点的X坐标
      * POINT_Y              原点的Y坐标
      * OBSTRUCT_POINT_NUM   干扰点的数量
@@ -23,13 +22,24 @@ public class IdCodeTools implements IdCodeToolsPort {
     private static final int POINT_X = 0;
     private static final int POINT_Y = 0;
     private static final int OBSTRUCT_POINT_NUM = 200;
-    private static final String ID_CODE_CHAR = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKL" +
-            "MNOPQRSTUVWXYZ";
+    private static final String ID_CODE_CHAR = "0123456789" + "abcdefghijklmnopqrstuvwxyz" +
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final int CODE_NUM = 4;
 
-    @Override
-    public void setWindowIdCode(int width, int height, Graphics graphics, Color bgColor,
-                                Color obstructColor) {
+    private IdCodeUtils() {
+    }
+
+    /**
+     * 设置窗体程序的验证码
+     *
+     * @param width         验证码宽度
+     * @param height        验证码高度
+     * @param graphics      画笔参数
+     * @param bgColor       背景颜色
+     * @param obstructColor 干扰颜色
+     */
+    public static void setWindowIdCode(int width, int height, Graphics graphics, Color bgColor,
+                                       Color obstructColor) {
         /*方法使用说明：当某个类继承Panel类时，这时只需要重写paint方法，在paint中引入该方法即可实现验证码的创建*/
         /*设置窗体程序验证码的步骤，首先设置背景颜色并填充背景，然后设置干扰颜色并绘制边框，再后绘制干扰点并设置验证码的字体
         和颜色，最后产生验证码的四个字符*/
